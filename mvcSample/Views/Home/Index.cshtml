@@ -1,0 +1,66 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@section scripts
+{
+    <script src="~/Scripts/react/react.min.js"></script>
+    <script src="~/Scripts/react/react-dom.min.js"></script>
+    <script src="~/Scripts/application/home.js"></script>
+    <script>
+        var ExampleApplication = React.createClass({
+            render: function () {
+                var elapsed = Math.round(this.props.elapsed / 100);
+                var seconds = elapsed / 10 + (elapsed % 10 ? '' : '.0');
+                var message =
+                    'React has been successfully running for ' + seconds + ' seconds.';
+
+                return React.DOM.p(null, message);
+            }
+        });
+
+        // Call React.createFactory instead of directly call ExampleApplication({...}) in React.render
+        var ExampleApplicationFactory = React.createFactory(ExampleApplication);
+
+        var start = new Date().getTime();
+        setInterval(function () {
+            ReactDOM.render(
+                ExampleApplicationFactory({ elapsed: new Date().getTime() - start }),
+                document.getElementById('container')
+            );
+        }, 50);
+    </script>
+}
+
+
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>
+            @item.UserName
+        </li>
+        
+    }
+</ul>
+
+<div ng-app="myApp">
+<div ng-controller="myCtl">
+    <p>angular stuff</p>
+    <label>select your favorite lanague/framework</label>
+        <select id="languageType" name="language" ng-model="selectedLanguage"
+                ng-options="language.value as language.text for language in languages" ng-init="selectedLanguage='1'"></select>
+        <pre>my favorite language is: {{selectedLanguage}}</pre>
+    <div>
+</div>
+        
+
+
+        <div id="container">
+            <p>
+                If you can see this, React is <strong>not</strong> working right.
+                If you checked out the source from GitHub make sure to run <code>grunt</code>.
+            </p>
+        </div>
+        <p>This is written in vanilla JavaScript (without JSX) and transformed in the browser.</p>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="aspnetUsers">
+  <DataContextMoniker Name="/aspnetUsersDataContext" />
+  <nestedChildShapes>
+    <classShape Id="bf4e9666-4746-4427-aa32-8818b3f83db5" absoluteBounds="1.75, 1.5, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/aspnetUsersDataContext/AspNetUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c82bb2f1-ef63-4015-b0e9-542f0cde502e" absoluteBounds="1.7649999999999997, 1.96, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fe9c078f-8695-4b6b-abc3-d65aeed4f956" absoluteBounds="6, 3.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/aspnetUsersDataContext/Tenant" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cda0cc81-a12c-45f0-923b-8c036d93488e" absoluteBounds="6.0150000000000006, 4.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6 : 4.34215413411458); (3.75 : 4.34215413411458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/aspnetUsersDataContext/Tenant/Tenant_AspNetUser" />
+      <nodes>
+        <classShapeMoniker Id="fe9c078f-8695-4b6b-abc3-d65aeed4f956" />
+        <classShapeMoniker Id="bf4e9666-4746-4427-aa32-8818b3f83db5" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,16 @@
+﻿<p>
+    
+    how to do javascript unit test
+    1.       intsall node.js
+    2. go to your project root, and do npm init ==> create a pakcage.json file for you
+    2.  npm install  karma --save-dev
+        npm install  karma-chrome-launcher --save-dev
+        npm install  karma-jasmine --save-dev
+        npm install  jasmine-core --save-dev  ==> should be automatically installed when you install karma-jasmine
+    
+    3. at your project root, do a karma init  karam.configure.js   ==> answer the questions (if you opt in require.js, you need to make sure it exists)
+    4. you either 
+       4.1  copy you karama.configure.js to karama/bin, then   go to node_moduels/karma/bin/ and do a  " node karma start  karama.configure.js  "
+       4.2  install karam-cli by : npm install -g karma-cli then at your project root, do a "karma start karma.configure.js"    
+
+</p>
