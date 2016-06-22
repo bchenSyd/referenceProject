@@ -234,6 +234,9 @@
     <None Include="Scripts\src\Song.js" />
     <None Include="test\PlayerSpec.js" />
     <None Include="test\SpecHelper.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
