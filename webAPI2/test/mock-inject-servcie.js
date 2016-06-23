@@ -21,50 +21,56 @@ service('dataService',[function() {
     }]);
 
 
-
-var mock, notify;
-beforeEach(module('myServiceModule'));
-beforeEach(function () {
-    mock = { alert: jasmine.createSpy() };
-
-    //*****************************************************************
-    //we set up the mock at MODULE level
-    module(function ($provide) {
-        $provide.value('$window', mock);
+describe('how to mock a $window service  -- create a child module and override $window there', function() {
+    var mockWin;
+    beforeEach(function() {
+        mockWin = { alert: jasmine.createSpy() };
+        angular.module('test', ['myServiceModule']).value('$window', mockWin);
+        module('test');
     });
-    //*****************************************************************
+       
+    it('should return service', inject(function(notify) {
+        notify('one'); // notify service is still availble within the context of 'test' module
+        expect(mockWin.alert).not.toHaveBeenCalled();
+    }));
 
-    //*********************************************************************************************************************
-    //            this is how you get service, it's different from getting value and get controller
-      inject(function ($injector) {
-        notify = $injector.get('notify');
+    it('should return service', inject(function (notify) {
+        notify('one');
+        notify('two');
+        notify('three');
+
+        expect(mockWin.alert).toHaveBeenCalledWith("one\ntwo\nthree");
+    }));
+
+});
+
+
+describe('how to mock a $window service  -- explicitly load a new module', function () {
+    var mock, notify;
+    beforeEach(function () {
+        module('myServiceModule');
+        mock = { alert: jasmine.createSpy() };
+        // module() takes functions or strings (module aliases)  ==> so essentially we are create a new module here;
+        module(function ($provide) {
+            $provide.value('$window', mock);  //set a $window value service
+        });
+
+        //use inject for GET
+        inject(function ($injector) {
+            notify = $injector.get('notify');
+        });
     });
-    //*********************************************************************************************************************
-});
 
-it('should not alert first two notifications', function () {
-    notify('one');
-    notify('two');
+    it('should return service', inject(function (notify) {
+        notify('one');
+        expect(mock.alert).not.toHaveBeenCalled();
+    }));
 
-    expect(mock.alert).not.toHaveBeenCalled();
-});
+    it('should return service', inject(function (notify) {
+        notify('one');
+        notify('two');
+        notify('three');
+        expect(mock.alert).toHaveBeenCalledWith("one\ntwo\nthree");
+    }));
 
-it('should alert all after third notification', function () {
-    notify('one');
-    notify('two');
-    notify('three');
-
-    expect(mock.alert).toHaveBeenCalledWith("one\ntwo\nthree");
-});
-
-it('should clear messages after alert', function () {
-    notify('one');
-    notify('two');
-    notify('third');
-    notify('more');
-    notify('two');
-    notify('third');
-
-    expect(mock.alert.callCount).toEqual(2);
-    expect(mock.alert.mostRecentCall.args).toEqual(["more\ntwo\nthird"]);
 });

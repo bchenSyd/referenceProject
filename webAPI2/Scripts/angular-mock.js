@@ -1954,7 +1954,9 @@
 
         var currentSpec = null,
             isSpecRunning = function () {
-                return currentSpec && (window.mocha || currentSpec.queue.running);
+                //return currentSpec && (window.mocha || currentSpec.queue.running);
+                return !!currentSpec;  //https://github.com/angular/angular.js/issues/1635
+                
             };
 
 

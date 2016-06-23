@@ -10,10 +10,6 @@ describe('MyApp', function () {
     // it loads only the "ng" module by default.
     beforeEach(module('myApplicationModule'));
 
-
-
-
-
     /*
     within the inject function, e.g. inject(function(_$controller_)}{
         localVar = _$controller_ })
@@ -31,15 +27,17 @@ describe('MyApp', function () {
 
 
     // The inject and module method can also be used inside of the it or beforeEach  ==> doesn't work!
-    xit('should override a version and test the new version is injected', function () {
+    it('should override a version and test the new version is injected', function () {
+        module(function ($provide) {
+            $provide.value('version', 'overridden'); // override version here
+        });
+
         // module() takes functions or strings (module aliases)
         inject(function (version) {
             expect(version).toEqual('overridden');
         });
 
-        module(function ($provide) {
-            $provide.value('version', 'overridden'); // override version here
-        });
+       
 
         
     });
