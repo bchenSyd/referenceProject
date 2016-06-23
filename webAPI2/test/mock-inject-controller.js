@@ -1,6 +1,12 @@
 ﻿describe('PasswordController', function () {
-    beforeEach(module('app'));
+    /*
+    Note that angular.module and angular.mock.module are not the same. The window.module function is an alias for angular.mock.module    
+    */
+    beforeEach(module('app'));  
 
+
+    //why do we need $controller??
+    //Often, we would like to inject a reference once, in a beforeEach() block and reuse this in multiple it() clauses. To be able to do this we must assign the reference to a variable that is declared in the scope of the describe() block
     var $controller;
 
     beforeEach(inject(function (_$controller_) {
