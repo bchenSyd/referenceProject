@@ -1,0 +1,69 @@
+[36m23 06 2016 09:50:03.518:DEBUG [plugin]: [39mLoading karma-* from D:\__work\mvcSample\webAPI2\node_modules
+[36m23 06 2016 09:50:03.521:DEBUG [plugin]: [39mLoading plugin D:\__work\mvcSample\webAPI2\node_modules/karma-chrome-launcher.
+[36m23 06 2016 09:50:03.528:DEBUG [plugin]: [39mLoading plugin D:\__work\mvcSample\webAPI2\node_modules/karma-jasmine.
+[36m23 06 2016 09:50:03.577:DEBUG [karma]: [39mList of files has changed, trying to execute
+[33m23 06 2016 09:50:03.577:WARN [karma]: [39mNo captured browser, open http://localhost:9876/
+[36m23 06 2016 09:50:03.581:DEBUG [watcher]: [39mWatching "D:/__work/mvcSample/webAPI2/Scripts/angular.js"
+[36m23 06 2016 09:50:03.581:DEBUG [watcher]: [39mWatching "D:/__work/mvcSample/webAPI2/Scripts/angular-mock.js"
+[36m23 06 2016 09:50:03.581:DEBUG [watcher]: [39mWatching "D:/__work/mvcSample/webAPI2/Scripts/src"
+[36m23 06 2016 09:50:03.581:DEBUG [watcher]: [39mWatching "D:/__work/mvcSample/webAPI2/test"
+[32m23 06 2016 09:50:03.585:INFO [karma]: [39mKarma v0.13.22 server started at http://localhost:9876/
+[32m23 06 2016 09:50:03.590:INFO [launcher]: [39mStarting browser Chrome
+[36m23 06 2016 09:50:03.591:DEBUG [temp-dir]: [39mCreating temp dir at C:\Users\admin\AppData\Local\Temp\karma-56436063
+[36m23 06 2016 09:50:03.591:DEBUG [launcher]: [39mC:\Program Files\Google\Chrome\Application\chrome.exe --user-data-dir=C:\Users\admin\AppData\Local\Temp\karma-56436063 --no-default-browser-check --no-first-run --disable-default-apps --disable-popup-blocking --disable-translate --disable-background-timer-throttling http://localhost:9876/?id=56436063
+[36m23 06 2016 09:50:04.738:DEBUG [web-server]: [39mserving: D:\__work\mvcSample\webAPI2\node_modules\karma\static/client.html
+[36m23 06 2016 09:50:04.788:DEBUG [web-server]: [39mserving: D:\__work\mvcSample\webAPI2\node_modules\karma\static/karma.js
+[36m23 06 2016 09:50:04.899:DEBUG [karma]: [39mA browser has connected on socket /#LPYI4SRlRVyhrV6YAAAA
+[36m23 06 2016 09:50:04.900:DEBUG [web-server]: [39mserving: D:\__work\mvcSample\webAPI2\node_modules\karma\static/favicon.ico
+[36m23 06 2016 09:50:04.905:DEBUG [web-server]: [39mupgrade /socket.io/?EIO=3&transport=websocket&sid=LPYI4SRlRVyhrV6YAAAA
+[32m23 06 2016 09:50:04.961:INFO [Chrome 51.0.2704 (Windows 7 0.0.0)]: [39mConnected on socket /#LPYI4SRlRVyhrV6YAAAA with id 56436063
+[36m23 06 2016 09:50:04.961:DEBUG [launcher]: [39mChrome (id 56436063) captured in 1.376 secs
+[36m23 06 2016 09:50:04.961:DEBUG [karma]: [39mAll browsers are ready, executing
+[36m23 06 2016 09:50:04.970:DEBUG [web-server]: [39mserving: D:\__work\mvcSample\webAPI2\node_modules\karma\static/context.html
+[36m23 06 2016 09:50:04.981:DEBUG [middleware:source-files]: [39mRequesting /base/node_modules/jasmine-core/lib/jasmine-core/jasmine.js?391e45351df9ee35392d2e5cb623221a969fc009 /
+[36m23 06 2016 09:50:04.981:DEBUG [middleware:source-files]: [39mFetching D:/__work/mvcSample/webAPI2/node_modules/jasmine-core/lib/jasmine-core/jasmine.js
+[36m23 06 2016 09:50:04.982:DEBUG [web-server]: [39mserving (cached): D:/__work/mvcSample/webAPI2/node_modules/jasmine-core/lib/jasmine-core/jasmine.js
+[36m23 06 2016 09:50:04.983:DEBUG [middleware:source-files]: [39mRequesting /base/node_modules/karma-jasmine/lib/adapter.js?7975a273517f1eb29d7bd018790fd4c7b9a485d5 /
+[36m23 06 2016 09:50:04.983:DEBUG [middleware:source-files]: [39mFetching D:/__work/mvcSample/webAPI2/node_modules/karma-jasmine/lib/adapter.js
+[36m23 06 2016 09:50:04.983:DEBUG [middleware:source-files]: [39mRequesting /base/Scripts/angular.js?48f9f1b0fb6603062589cab5fe78f120b3d74d1f /
+[36m23 06 2016 09:50:04.983:DEBUG [middleware:source-files]: [39mFetching D:/__work/mvcSample/webAPI2/Scripts/angular.js
+[36m23 06 2016 09:50:04.983:DEBUG [middleware:source-files]: [39mRequesting /base/Scripts/angular-mock.js?0b908c5700354683d04104ffe7fc00699bcb19b3 /
+[36m23 06 2016 09:50:04.983:DEBUG [middleware:source-files]: [39mFetching D:/__work/mvcSample/webAPI2/Scripts/angular-mock.js
+[36m23 06 2016 09:50:04.984:DEBUG [middleware:source-files]: [39mRequesting /base/node_modules/karma-jasmine/lib/boot.js?945a38bf4e45ad2770eb94868231905a04a0bd3e /
+[36m23 06 2016 09:50:04.984:DEBUG [middleware:source-files]: [39mFetching D:/__work/mvcSample/webAPI2/node_modules/karma-jasmine/lib/boot.js
+[36m23 06 2016 09:50:04.984:DEBUG [web-server]: [39mserving (cached): D:/__work/mvcSample/webAPI2/node_modules/karma-jasmine/lib/adapter.js
+[36m23 06 2016 09:50:04.984:DEBUG [web-server]: [39mserving (cached): D:/__work/mvcSample/webAPI2/Scripts/angular.js
+[36m23 06 2016 09:50:04.991:DEBUG [web-server]: [39mserving (cached): D:/__work/mvcSample/webAPI2/Scripts/angular-mock.js
+[36m23 06 2016 09:50:04.992:DEBUG [web-server]: [39mserving (cached): D:/__work/mvcSample/webAPI2/node_modules/karma-jasmine/lib/boot.js
+[36m23 06 2016 09:50:04.992:DEBUG [middleware:source-files]: [39mRequesting /base/Scripts/src/Player.js?fc6fe8fbacbcb6655b3e70e31fdc08b1a7ffb43d /
+[36m23 06 2016 09:50:04.992:DEBUG [middleware:source-files]: [39mFetching D:/__work/mvcSample/webAPI2/Scripts/src/Player.js
+[36m23 06 2016 09:50:04.993:DEBUG [middleware:source-files]: [39mRequesting /base/Scripts/src/Song.js?f92b09ce7a87df006ba9c648f196f6a651cacc68 /
+[36m23 06 2016 09:50:04.993:DEBUG [middleware:source-files]: [39mFetching D:/__work/mvcSample/webAPI2/Scripts/src/Song.js
+[36m23 06 2016 09:50:04.993:DEBUG [web-server]: [39mserving (cached): D:/__work/mvcSample/webAPI2/Scripts/src/Player.js
+[36m23 06 2016 09:50:04.993:DEBUG [web-server]: [39mserving (cached): D:/__work/mvcSample/webAPI2/Scripts/src/Song.js
+[36m23 06 2016 09:50:04.993:DEBUG [middleware:source-files]: [39mRequesting /base/Scripts/src/app.js?6db1ec3c89b76c1ad57bc6ef82acf4972bb1beae /
+[36m23 06 2016 09:50:04.993:DEBUG [middleware:source-files]: [39mFetching D:/__work/mvcSample/webAPI2/Scripts/src/app.js
+[36m23 06 2016 09:50:04.994:DEBUG [web-server]: [39mserving (cached): D:/__work/mvcSample/webAPI2/Scripts/src/app.js
+[36m23 06 2016 09:50:05.000:DEBUG [middleware:source-files]: [39mRequesting /base/test/PlayerSpec.js?6731e76728dd1a20c152b5ea9db1490cbc67d989 /
+[36m23 06 2016 09:50:05.000:DEBUG [middleware:source-files]: [39mFetching D:/__work/mvcSample/webAPI2/test/PlayerSpec.js
+[36m23 06 2016 09:50:05.001:DEBUG [web-server]: [39mserving (cached): D:/__work/mvcSample/webAPI2/test/PlayerSpec.js
+[36m23 06 2016 09:50:05.001:DEBUG [middleware:source-files]: [39mRequesting /base/test/SpecHelper.js?2895bae1c259f4e9e35da3a3c8bc3248034700de /
+[36m23 06 2016 09:50:05.001:DEBUG [middleware:source-files]: [39mFetching D:/__work/mvcSample/webAPI2/test/SpecHelper.js
+[36m23 06 2016 09:50:05.001:DEBUG [middleware:source-files]: [39mRequesting /base/test/test_app.js?7764af8e7f245a1b594b2fafb4b59c261fc3cf57 /
+[36m23 06 2016 09:50:05.001:DEBUG [middleware:source-files]: [39mFetching D:/__work/mvcSample/webAPI2/test/test_app.js
+[36m23 06 2016 09:50:05.002:DEBUG [web-server]: [39mserving (cached): D:/__work/mvcSample/webAPI2/test/SpecHelper.js
+[36m23 06 2016 09:50:05.002:DEBUG [web-server]: [39mserving (cached): D:/__work/mvcSample/webAPI2/test/test_app.js
+Chrome 51.0.2704 (Windows 7 0.0.0): Executed 0 of 7 SUCCESS (0 secs / 0 secs)
+[1A[2KChrome 51.0.2704 (Windows 7 0.0.0): Executed 1 of 7 SUCCESS (0 secs / 0.002 secs)
+[1A[2KChrome 51.0.2704 (Windows 7 0.0.0): Executed 2 of 7 SUCCESS (0 secs / 0.002 secs)
+[1A[2KChrome 51.0.2704 (Windows 7 0.0.0): Executed 3 of 7 SUCCESS (0 secs / 0.003 secs)
+[1A[2KChrome 51.0.2704 (Windows 7 0.0.0): Executed 4 of 7 SUCCESS (0 secs / 0.004 secs)
+[1A[2KChrome 51.0.2704 (Windows 7 0.0.0): Executed 5 of 7 SUCCESS (0 secs / 0.005 secs)
+[1A[2KChrome 51.0.2704 (Windows 7 0.0.0): Executed 6 of 7 SUCCESS (0 secs / 0.018 secs)
+[1A[2KChrome 51.0.2704 (Windows 7 0.0.0): Executed 7 of 7 SUCCESS (0 secs / 0.02 secs)
+[1A[2KChrome 51.0.2704 (Windows 7 0.0.0): Executed 7 of 7 SUCCESS (0.028 secs / 0.02 secs)
+[36m23 06 2016 09:50:07.963:DEBUG [launcher]: [39mDisconnecting all browsers
+[36m23 06 2016 09:50:07.982:DEBUG [launcher]: [39mProcess Chrome exited with code 0
+[36m23 06 2016 09:50:07.983:DEBUG [temp-dir]: [39mCleaning temp dir C:\Users\admin\AppData\Local\Temp\karma-56436063
+[36m23 06 2016 09:50:08.011:DEBUG [launcher]: [39mFinished all browsers
+Terminate batch job (Y/N)? 
