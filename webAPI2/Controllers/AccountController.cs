@@ -21,34 +21,12 @@ using webAPI2.Results;
 
 namespace webAPI2.Controllers
 {
-    public class Card
-    {
-        public string CardNumber { get; set; }
-        public int Balance { get; set; }
-    }
+   
 
     [Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
-        [AllowAnonymous]
-        [Route("foo")]
-        [HttpPut]
-        public IHttpActionResult Test(Card card)
-        {
-            if (card.Balance > 100)
-            {
-                return Ok(new {response = "payment succeeded!"});
-            }
-            else
-            {
-              
-               
-                
-            }
-        }
-        //----------------------------------------------------------------------------------------------
-        //----------------------------------------------------------------------------------------------
         //----------------------------------------------------------------------------------------------
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;

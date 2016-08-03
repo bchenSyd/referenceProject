@@ -1,0 +1,70 @@
+1. try to access Account/userinfo and get dennied;
+GET http://localhost:37092/api/Account/userInfo HTTP/1.1
+User-Agent: Fiddler
+content-type: application/json
+
+=> {"Message":"Authorization has been denied for this request."}
+
+
+2. register a user using account/register
+POST http://localhost:37092/api/Account/register HTTP/1.1
+User-Agent: Fiddler
+content-type: application/json
+Host: localhost:37092
+Content-Length: 99
+
+{
+   email:'bochen@ippayments.com',
+  password:'Password01!',
+ confirmPassword:'Password01!',
+}
+
+
+HTTP/1.1 200 OK
+
+3. authenticate using usrename & password
+POST http://localhost:37092/token HTTP/1.1
+User-Agent: Fiddler
+content-type: application/json
+Host: localhost:37092
+Content-Length: 71
+
+grant_type=password&userName=bochen@ippayments.com&password=Password01!
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json;charset=UTF-8
+Expires: -1
+Server: Microsoft-IIS/10.0
+Set-Cookie: .AspNet.Cookies=6BoOSa2EmUkv4ag7S5dDI4e5c8SMSjSqgbqa3LtWK5CE5onGNLQTcM-8dO5_A-vNx2LN6nexNoy_Jp5h8PcicNs1Aw8cTajUjWk_rFswoN7zfo8PJKJz4sp8-Qb7FVrxD-w-QU3EVc10U5CkaZjajfH-w6xNHyZUnPHCNNPVafok08D1PXbes3ik5jvHukOsO_mlf037X1sJLbX3HoxwnDFK2CcKc051opQfjnUTM736TXCtwg0ekloimTrpYol2nyURqoBVwJA3jMYQWQEp55xDybYtjoK14kUnxx2u-VQP_bygbtv2CKJ_VwAQlaN5Wsg-wa69Y9NVBGFHMZCPFNqXkbpRvyigalDaqzGpmrmsXsQAYGzoqghhL3SAeWHapxcZSYWHvOpCKZDQEDMJQR5P4MlAsGYz-GL2ahF2ewUvEVnHkOh4nIyYUKEkyEkaFP_UL4ARI8dHNpk7M7zYpRsk2P8RF2ZybLOFPpPRpNQ; path=/; HttpOnly
+X-SourceFiles: =?UTF-8?B?RDpcX193b3JrXG12Y1NhbXBsZVx3ZWJBUEkyXHRva2Vu?=
+X-Powered-By: ASP.NET
+Date: Wed, 03 Aug 2016 11:32:33 GMT
+Content-Length: 694
+
+{"access_token":"NcWTmZB6gy6NsiIElvsQ2T15NFaX7QSsRDUokRG8XscirLJJeAL3atkcl9YvzrjRu1KiQfHwOgZc0M2N_f_kfBV7Gw7aLtjtCt07ys1WgLWmzkd7bkocwdFcwDZw4yLZotyiuWYOTdrTGgWbXltGqu6uDppDjhNhseTqvjvAAqO3AXcENwj_oVV15tEWtEMMMm6XILBMm8C8VJ38hJbPOK5sHzjVPYVAUE_f8yWWFUCCdBoqd4WLCWmxvm5gZyCcExYQdwJk1HtiXv2LwRN1VVAampAnUIC5iDd83exLN5Igi7BzBw0fwBvmfmj202PjMneQLaf5OS-eB4NN-cS4QeZU5WkwiWAHl0Sf3ujmUQS_FeTCauNAnXI9umOa4BiVw-Dg9yXCKu-3KGRLD9v-hN8d2Ismi-LU8W_JO2vyCHQtKUiy1C7jju8ThO_4yNDxssm5CDXd6c7eHlsH73QfbuOgi_xs4NMkx_rdxNYFJxfDFdWpmJIl0ngqtcY1nrA3","token_type":"bearer","expires_in":1209599,"userName":"bochen@ippayments.com",".issued":"Wed, 03 Aug 2016 11:32:02 GMT",".expires":"Wed, 17 Aug 2016 11:32:02 GMT"}
+
+
+4. Now access the Account/userInfo again
+GET http://localhost:37092/api/Account/UserInfo HTTP/1.1
+User-Agent: Fiddler
+content-type: application/json
+Host: localhost:37092
+Content-Length: 0
+Authorization: Bearer  NcWTmZB6gy6NsiIElvsQ2T15NFaX7QSsRDUokRG8XscirLJJeAL3atkcl9YvzrjRu1KiQfHwOgZc0M2N_f_kfBV7Gw7aLtjtCt07ys1WgLWmzkd7bkocwdFcwDZw4yLZotyiuWYOTdrTGgWbXltGqu6uDppDjhNhseTqvjvAAqO3AXcENwj_oVV15tEWtEMMMm6XILBMm8C8VJ38hJbPOK5sHzjVPYVAUE_f8yWWFUCCdBoqd4WLCWmxvm5gZyCcExYQdwJk1HtiXv2LwRN1VVAampAnUIC5iDd83exLN5Igi7BzBw0fwBvmfmj202PjMneQLaf5OS-eB4NN-cS4QeZU5WkwiWAHl0Sf3ujmUQS_FeTCauNAnXI9umOa4BiVw-Dg9yXCKu-3KGRLD9v-hN8d2Ismi-LU8W_JO2vyCHQtKUiy1C7jju8ThO_4yNDxssm5CDXd6c7eHlsH73QfbuOgi_xs4NMkx_rdxNYFJxfDFdWpmJIl0ngqtcY1nrA3
+
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+Expires: -1
+Server: Microsoft-IIS/10.0
+X-AspNet-Version: 4.0.30319
+X-SourceFiles: =?UTF-8?B?RDpcX193b3JrXG12Y1NhbXBsZVx3ZWJBUEkyXGFwaVxBY2NvdW50XFVzZXJJbmZv?=
+X-Powered-By: ASP.NET
+Date: Wed, 03 Aug 2016 11:37:13 GMT
+Content-Length: 75
+
+{"Email":"bochen@ippayments.com","HasRegistered":true,"LoginProvider":null}
+
