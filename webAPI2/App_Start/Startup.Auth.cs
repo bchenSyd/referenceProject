@@ -105,8 +105,8 @@ namespace webAPI2
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
-                ClientId = "330193776007-jikdsjiljjh3bv9uikpogu7j7qfq1l4o.apps.googleusercontent.com",
-                ClientSecret = "pMWU4V34wyPHG3b2xdgZM0my"
+                ClientId = "330193776007-lhimr7k2tuchn7euseqbgessnj64usgt.apps.googleusercontent.com",
+                ClientSecret = "NM7MYz-WTxZnObi3HRiQ51bE"
             });
         }
     }

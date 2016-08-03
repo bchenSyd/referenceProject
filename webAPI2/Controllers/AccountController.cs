@@ -227,21 +227,17 @@ namespace webAPI2.Controllers
 //***************************************************************************************************************************************************
         /*use google login in web api
           At first get all available providers
-          GET http://localhost:37092/api/Account/ExternalLogins?returnUrl=%2F&generateState=true HTTP/1.1
+          GET http://localhost:37092/api/Account/ExternalLogins?returnUrl=%2F HTTP/1.1
           The response message is a list in json format
          * [{"Name":"Google","Url":"/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=http%3A%2F%2Flocalhost%3A37092%2F&state=E2-aoRxnQr1928pPpr_4HeDnjpxdofVxMDD4lJjPF3s1","State":"E2-aoRxnQr1928pPpr_4HeDnjpxdofVxMDD4lJjPF3s1"}]
          * 
-         * */
-
-        //see:https://blogs.msdn.microsoft.com/webdev/2014/07/02/changes-to-google-oauth-2-0-and-updates-in-google-middleware-for-3-0-0-rc-release/
-
-        // GET api/Account/ExternalLogin
-        /// <summary>
-        /// the [Authroize] attribute , which is defined at controller level is supressed by [OverrideAuthentication]
-        /// it marks itself to use DefaultAuthenticationTypes.ExternalCookie
-        /// (app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);)
-        /// </summary>
-      
+         When there is a 401, your user gets redirected to Google. There, your user logs in and Google validates the credential. 
+         * Google then redirects the user back to your app. At this point, Google authentication middleware gets the login info, 
+         * applies a grant (read external cookie) and short circuits the OWIN pipeline and redirects to the external callback URL, 
+         * which corresponds to ExternalLoginCallback action method of AccountController. 
+         * So, at this point when the request comes to your app as a result of redirect, 
+         * you get the external cookie with the user name and email claims.
+      */
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
         [AllowAnonymous]
