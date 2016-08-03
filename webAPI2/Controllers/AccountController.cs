@@ -224,8 +224,24 @@ namespace webAPI2.Controllers
 
             return Ok();
         }
+//***************************************************************************************************************************************************
+        /*use google login in web api
+          At first get all available providers
+          GET http://localhost:37092/api/Account/ExternalLogins?returnUrl=%2F&generateState=true HTTP/1.1
+          The response message is a list in json format
+         * [{"Name":"Google","Url":"/api/Account/ExternalLogin?provider=Google&response_type=token&client_id=self&redirect_uri=http%3A%2F%2Flocalhost%3A37092%2F&state=E2-aoRxnQr1928pPpr_4HeDnjpxdofVxMDD4lJjPF3s1","State":"E2-aoRxnQr1928pPpr_4HeDnjpxdofVxMDD4lJjPF3s1"}]
+         * 
+         * */
+
+        //see:https://blogs.msdn.microsoft.com/webdev/2014/07/02/changes-to-google-oauth-2-0-and-updates-in-google-middleware-for-3-0-0-rc-release/
 
         // GET api/Account/ExternalLogin
+        /// <summary>
+        /// the [Authroize] attribute , which is defined at controller level is supressed by [OverrideAuthentication]
+        /// it marks itself to use DefaultAuthenticationTypes.ExternalCookie
+        /// (app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);)
+        /// </summary>
+      
         [OverrideAuthentication]
         [HostAuthentication(DefaultAuthenticationTypes.ExternalCookie)]
         [AllowAnonymous]
@@ -282,7 +298,8 @@ namespace webAPI2.Controllers
             return Ok();
         }
 
-        // GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
+        //step 1: GET api/Account/ExternalLogins?returnUrl=%2F&generateState=true
+        //urlencoding('/') = %2F
         [AllowAnonymous]
         [Route("ExternalLogins")]
         public IEnumerable<ExternalLoginViewModel> GetExternalLogins(string returnUrl, bool generateState = false)
@@ -322,7 +339,7 @@ namespace webAPI2.Controllers
 
             return logins;
         }
-
+//***************************************************************************************************************************************************
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]

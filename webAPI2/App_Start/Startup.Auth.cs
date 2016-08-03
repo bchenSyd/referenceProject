@@ -44,8 +44,36 @@ namespace webAPI2
 
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
-            app.UseCookieAuthentication(new CookieAuthenticationOptions());
-            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
+            app.UseCookieAuthentication(new CookieAuthenticationOptions());  //Active
+
+            //**********************************************************************************************
+            /* 
+             * http://stackoverflow.com/questions/26166826/usecookieauthentication-vs-useexternalsignincookie
+             * why do I need UseCookieAuthentication and UseExternalSignInCookie?
+             You need all of them, if you want Google sign in to work. This is how it works. 
+             * In the OWIN pipeline, you have three middleware components: 
+             * (1) the cookie authentication middleware running in active mode, 
+             * (2) another instance of cookie authentication middleware but running in passive mode, and 
+             * (3) Google authentication middleware. That will be like so.
+
+                app.UseCookieAuthentication(new CookieAuthenticationOptions
+                {
+                    AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
+                    ...
+                }); // Active
+
+                app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie); // Passive
+
+                app.UseGoogleAuthentication(...);
+                When there is a 401, your user gets redirected to Google. There, your user logs in and Google validates the credential. 
+                Google then redirects the user back to your app. At this point, Google authentication middleware gets the login info, 
+                applies a grant (read external cookie) and short circuits the OWIN pipeline and redirects to the external callback URL, 
+                which corresponds to ExternalLoginCallback action method of AccountController. So, 
+                at this point when the request comes to your app as a result of redirect, you get the external cookie 
+                with the user name and email claims.
+             
+                             */
+            app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie); //Passive
 
             // Configure the application for OAuth based flow
             PublicClientId = "self";
@@ -75,11 +103,11 @@ namespace webAPI2
             //    appId: "",
             //    appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "330193776007-jikdsjiljjh3bv9uikpogu7j7qfq1l4o.apps.googleusercontent.com",
+                ClientSecret = "pMWU4V34wyPHG3b2xdgZM0my"
+            });
         }
     }
 }
