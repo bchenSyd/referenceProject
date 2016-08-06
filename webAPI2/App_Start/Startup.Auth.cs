@@ -103,11 +103,28 @@ namespace webAPI2
             //    appId: "",
             //    appSecret: "");
 
+            /*
+             The redirect URI in the request, http://localhost:7057/signin-google, does not match the ones authorized for the OAuth client.
+             */
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
+                //Authorized redirect URIs:  http://localhost:37092/signin-google
                 ClientId = "330193776007-lhimr7k2tuchn7euseqbgessnj64usgt.apps.googleusercontent.com",
                 ClientSecret = "NM7MYz-WTxZnObi3HRiQ51bE"
             });
+
+            /*
+            "oauth-client-application-name":{  
+              "client_id":"330193776007-lhimr7k2tuchn7euseqbgessnj64usgt.apps.googleusercontent.com",
+              "project_id":"webapi-1470226146831",
+              "auth_uri":"https://accounts.google.com/o/oauth2/auth",
+              "token_uri":"https://accounts.google.com/o/oauth2/token",
+              "auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+              "client_secret":"NM7MYz-WTxZnObi3HRiQ51bE",
+              "redirect_uris":[  
+                 "http://localhost:37092/signin-google"
+                  ]
+               } */
         }
     }
 }
