@@ -50,6 +50,11 @@ namespace mvc.Controllers
             }
         }
 
+        public ActionResult GetSecureMessage()
+        {
+            return new ContentResult() {Content = "top secret"};
+        }
+
         //
         // GET: /Manage/Index
         public async Task<ActionResult> Index(ManageMessageId? message)

@@ -58,11 +58,12 @@ namespace mvc
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                //Authorized redirect URIs:  http://localhost:8080/signin-google
+                ClientId = "330193776007-45hrl0c3gshu9ppo116rbh2954vagmtk.apps.googleusercontent.com",
+                ClientSecret = "kOIdxAUPGmMQePArYkPR5inz"
+            });
         }
     }
 }
